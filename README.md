@@ -1,23 +1,27 @@
 # Cálculo do Coeficiente Linear de Atenuação da Radiação
 
-Este projeto contém um algoritmo em Python para calcular o coeficiente linear de atenuação da radiação ao passar por um material. O coeficiente linear de atenuação é uma medida de quanto a radiação é reduzida ao atravessar um material específico.
+Este projeto contém um algoritmo em Python para calcular o **coeficiente linear de atenuação da radiação** ao atravessar um material. Esse coeficiente (\( \mu \)) é uma medida que quantifica a redução da intensidade da radiação ao passar por um material, sendo fundamental em áreas como física médica e engenharia de materiais.
 
 ## Fórmula
 
-A fórmula utilizada para calcular o coeficiente linear de atenuação (\( \mu \)) é derivada da equação de atenuação exponencial:
+A fórmula usada para calcular o coeficiente linear de atenuação é baseada na **equação de atenuação exponencial**:
 
-\[ I = I_0 \cdot e^{-\mu x} \]
+```
+I = I0 * e^(-μ * x)
+```
 
 Onde:
 
-- \( I \) é a intensidade da radiação após passar pelo material.
-- \( I_0 \) é a intensidade inicial da radiação.
-- \( \mu \) é o coeficiente linear de atenuação.
-- \( x \) é a espessura do material.
+- `I`: intensidade da radiação após atravessar o material;
+- `I0`: intensidade inicial da radiação;
+- `μ`: coeficiente linear de atenuação;
+- `x`: espessura do material.
 
-Rearranjando a fórmula para resolver \( \mu \):
+Para calcular \( \mu \), a equação pode ser rearranjada como:
 
-\[ \mu = -\frac{\ln(I/I_0)}{x} \]
+```
+μ = -ln(I / I0) / x
+```
 
 ## Requisitos
 
@@ -25,18 +29,28 @@ Rearranjando a fórmula para resolver \( \mu \):
 
 ## Como Usar
 
-1. Clone este repositório para o seu ambiente local.
-2. Execute o script `calcular_coeficiente_linear.py`.
+1. Clone este repositório para seu ambiente local:
+   ```bash
+   git clone <URL-do-repositório>
+   ```
+2. Navegue até o diretório do projeto:
+   ```bash
+   cd <nome-do-diretório>
+   ```
+3. Execute o script `calcular_coeficiente_linear.py`:
+   ```bash
+   python calcular_coeficiente_linear.py
+   ```
 
 ### Exemplo de Uso
 
-O script solicita ao usuário os valores de \( I_0 \), \( I \) e \( x \), e então calcula e imprime o coeficiente linear de atenuação.
+O script solicita ao usuário os valores de **intensidade inicial** (`I0`), **intensidade final** (`I`) e a **espessura do material** (`x`), calculando e exibindo o coeficiente de atenuação.
 
 ```python
 import math
 
 def calcular_coeficiente_linear(I0, I, x):
-    if I0 <= 0 ou I <= 0 ou x <= 0:
+    if I0 <= 0 or I <= 0 or x <= 0:
         raise ValueError("Os valores de I0, I e x devem ser maiores que zero.")
     mu = -math.log(I / I0) / x
     return mu
@@ -55,14 +69,14 @@ except ValueError as e:
 
 ### Passo a Passo
 
-1. **Entrada de Dados**: O usuário deve fornecer os valores de intensidade inicial da radiação (\( I_0 \)), intensidade da radiação após passar pelo material (\( I \)) e a espessura do material (\( x \)).
-2. **Cálculo**: O algoritmo calcula o coeficiente linear de atenuação usando a fórmula mencionada.
-3. **Saída**: O coeficiente linear de atenuação é exibido na tela.
+1. **Entrada de Dados**: O usuário deve fornecer os valores da intensidade inicial (`I0`), intensidade final (`I`) e espessura do material (`x`).
+2. **Cálculo**: O algoritmo calcula o coeficiente linear de atenuação usando a fórmula apresentada.
+3. **Saída**: O valor do coeficiente \( \mu \) é exibido na tela.
 
 ## Tratamento de Erros
 
-O algoritmo inclui uma verificação para garantir que os valores de \( I_0 \), \( I \) e \( x \) sejam maiores que zero. Caso contrário, uma mensagem de erro é exibida.
+O programa verifica se os valores fornecidos para `I0`, `I` e `x` são maiores que zero. Se não forem, uma mensagem de erro é exibida.
 
 ## Contribuições
 
-Contribuições são bem-vindas! Sinta-se à vontade para abrir issues ou enviar pull requests.
+Contribuições são bem-vindas! Caso você tenha sugestões de melhoria ou encontre problemas, sinta-se à vontade para abrir uma issue ou enviar um pull request.
